@@ -11,22 +11,31 @@ pipeline {
             
         stage ('Compile Stage') {
 
-            steps {                
-                    bat 'mvn clean compile'                
+            steps {   
+                maven(maven : 'maven_3_8_5'){
+                       bat 'mvn clean compile'                
+                }
+                 
             }
         }
         
         stage ('Testing Stage') {
 
             steps {
-                 bat 'mvn test'
+                maven(maven : 'maven_3_8_5'){
+                    bat 'mvn test'
+                }
+                 
             }
         }
 
 
         stage ('Deployment Stage') {
             steps {
-                bat 'mvn deploy'
+                maven(maven : 'maven_3_8_5'){
+                    bat 'mvn deploy'
+                }
+                
             }
         }
 
