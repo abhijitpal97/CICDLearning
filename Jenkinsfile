@@ -10,7 +10,7 @@ pipeline {
             steps{
             git 'https://github.com/abhijitpal97/CICDLearning'
             }
-            
+        }   
             
         stage ('Compile Stage') {
 
