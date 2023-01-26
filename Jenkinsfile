@@ -6,11 +6,6 @@ pipeline {
     }
     stages {
 	
-	stage("SCM Checkout"){
-            steps{
-            git 'https://github.com/abhijitpal97/CICDLearning'
-            }
-        }   
 		
         stage('Compile stage') {
             steps {
