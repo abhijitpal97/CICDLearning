@@ -6,15 +6,10 @@ pipeline {
     }
     stages {
 	
-	stage("SCM Checkout"){
-            steps{
-            git 'https://github.com/abhijitpal97/CICDLearning'
-            }
-        }   
 		
         stage('Compile stage') {
             steps {
-                bat "mvn clean compile" 
+                bat "mvn package" 
         }
     }
 
@@ -23,13 +18,6 @@ pipeline {
                 bat "mvn test"
         }
     }
-
-          stage('deployment stage') {
-              steps {
-                bat "mvn deploy"
-        }
-    }
-
   }
 
 }
