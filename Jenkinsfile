@@ -1,7 +1,7 @@
 node
 {
     stage('SCM Checkout'){
-        git('')
+        git('https://github.com/abhijitpal97/CICDLearning')
     }
     stage('Compile Package')
     {
