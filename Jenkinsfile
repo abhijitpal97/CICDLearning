@@ -5,7 +5,20 @@ pipeline {
         maven 'maven_3_8_5' 
     }
     stages {
-		
+			stage('Sonar Analysis')	 
+	    {
+		    steps
+		    {
+			    script
+			    {
+				    withSonarQubeEnv('sonarqube')
+				    {
+					    bat "mvn sonar:sonar"
+				    }
+			    }
+		    }
+	    }
+	    
         stage('Compile stage') {
             steps {
                 bat "mvn package" 
